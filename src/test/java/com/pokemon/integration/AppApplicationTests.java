@@ -33,7 +33,7 @@ public class AppApplicationTests {
 		ResponseEntity<PokemonDto> response
 				= testRestTemplate.getForEntity("/pokemon?id=1", PokemonDto.class);
 
-		assertThat(response.getStatusCode().is2xxSuccessful());
+		assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
 
 
 	}
