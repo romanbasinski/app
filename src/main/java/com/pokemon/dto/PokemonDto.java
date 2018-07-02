@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Arrays;
 import java.util.Map;
 
+
+
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PokemonDto {
     private String name;
@@ -13,19 +16,17 @@ public class PokemonDto {
     private String speciesUrl;
     private String speciesName;
 
-    @Override
-    public String toString() {
-        return "PokemonDto{" +
-                "name='" + name + '\'' +
-                ", weight='" + weight + '\'' +
-                ", speciesUrl='" + speciesUrl + '\'' +
-                ", speciesName='" + speciesName + '\'' +
-                ", abilities=" + Arrays.toString(abilities) +
-                '}';
-    }
-
     @JsonProperty("abilities")
     private AbilitiesDto[] abilities;
+
+
+    @JsonProperty("stats")
+    private StatsDto[] statsDto;
+
+    public PokemonDto() {
+    }
+
+
 
     public String getName() {
         return name;
@@ -49,10 +50,6 @@ public class PokemonDto {
 
     }
 
-    public PokemonDto() {
-    }
-
-
     @SuppressWarnings("unchecked")
     @JsonProperty("species")
     private void unpackNested(Map<String, Object> spec) {
@@ -75,4 +72,16 @@ public class PokemonDto {
     public void setSpeciesUrl(String speciesUrl) {
         this.speciesUrl = speciesUrl;
     }
+
+    @Override
+    public String toString() {
+        return "PokemonDto{" +
+                "name='" + name + '\'' +
+                ", weight='" + weight + '\'' +
+                ", speciesUrl='" + speciesUrl + '\'' +
+                ", speciesName='" + speciesName + '\'' +
+                ", abilities=" + Arrays.toString(abilities) +
+                '}';
+    }
+
 }
