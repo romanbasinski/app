@@ -15,7 +15,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class AppApplicationTests {
+public class PokemonRestIntegrationTests {
 
 	@Autowired
 	TestRestTemplate testRestTemplate;
