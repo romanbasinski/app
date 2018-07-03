@@ -4,10 +4,10 @@ package com.pokemon.rest;
 import com.pokemon.dto.PokemonDto;
 import com.pokemon.service.PokemonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -28,14 +28,25 @@ public class PokemonRest {
     @RequestMapping("/pokemon")
     public PokemonDto getPokemon(@RequestParam(value="id") String id) throws IOException {
 
-        return pokemonService.getPokemonDto(id);
+
+        return new PokemonDto();
     }
 
 
+    @PostMapping("/addPokemon")
+    public ResponseEntity<String> addPokemon(@RequestBody PokemonDto pokemonDto) {
 
-    //TODO
-    // /addPokemon -> post tworzacy
-    // pokemona i dodajacy go do listy PokemonCache
+
+        //TODO
+        // /addPokemon -> post tworzacy
+        // pokemona i dodajacy go do listy PokemonCache
+
+
+        return null;
+    }
+
+
+    //get ktory to wyswietli //getAllPokemons
 
 
 }
