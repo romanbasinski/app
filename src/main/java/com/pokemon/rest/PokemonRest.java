@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 public class PokemonRest {
@@ -34,15 +35,14 @@ public class PokemonRest {
     @PostMapping("/addPokemon")
     public ResponseEntity<String> addPokemon(@RequestBody PokemonDto pokemonDto) {
 
-
-        //TODO
-        // /addPokemon -> post tworzacy
-        // pokemona i dodajacy go do listy PokemonCache
-
-
-        return null;
+        pokemonService.addToDb(pokemonDto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    @GetMapping("/getAll")
+    public List<PokemonDto> getPokemon() throws IOException {
+        return null;
+    }
 
     //get ktory to wyswietli //getAllPokemons
 

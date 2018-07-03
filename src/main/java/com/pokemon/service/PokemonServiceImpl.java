@@ -17,7 +17,13 @@ import java.io.IOException;
 public class PokemonServiceImpl implements PokemonService {
 
     @Autowired
+    public PokemonServiceImpl(ParseService parseService, PokemonJdbcService pokemonJdbcService) {
+        this.parseService = parseService;
+        this.pokemonJdbcService = pokemonJdbcService;
+    }
+
     ParseService parseService;
+    PokemonJdbcService pokemonJdbcService;
 
     public PokemonDto getPokemonDto(String id) throws IOException {
         CloseableHttpClient httpClient
@@ -34,5 +40,11 @@ public class PokemonServiceImpl implements PokemonService {
 
 
         return parseService.returnParsedPokemon(response.getBody());
+    }
+
+    @Override
+    public void addToDb(PokemonDto pokemonDto) {
+        pokemonJdbcService.addToPokemonTable(pokemonDto);
+
     }
 }

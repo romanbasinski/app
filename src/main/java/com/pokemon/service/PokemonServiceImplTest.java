@@ -10,4 +10,9 @@ public class PokemonServiceImplTest implements PokemonService {
     public PokemonDto getPokemonDto(String id) throws IOException {
         return new PokemonDto("bublbasaur","20");
     }
+
+    @Override
+    public void addToDb(PokemonDto pokemonDto) {
+
+    }
 }
