@@ -27,9 +27,7 @@ public class PokemonRest {
 
     @RequestMapping("/pokemon")
     public PokemonDto getPokemon(@RequestParam(value="id") String id) throws IOException {
-
-
-        return new PokemonDto();
+        return pokemonService.getPokemonDto(id);
     }
 
 
