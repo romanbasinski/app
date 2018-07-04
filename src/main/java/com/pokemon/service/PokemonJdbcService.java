@@ -22,28 +22,12 @@ public class PokemonJdbcService {
 
     }
 
-    public void addToPokemonTable(PokemonDto pokemonDto) {
-       // jdbcTemplate... //insert into...
-
+    public void addToPokemonTable(PokemonDto pokemonDto, int id) {
+        jdbcTemplate.update("INSERT INTO pokemons VALUES(?,?,?,?,?)",
+               id, pokemonDto.getName(), pokemonDto.getWeight(),
+                pokemonDto.getSpeciesUrl(), pokemonDto.getSpeciesName());
 
     }
-
-    //SIMPLE EXECUTE
-    //// jdbcTemplate.execute("create table user (id int, name varchar)");
-
-    //SIMPLE UPDATE
-//    public int addEmplyee(int id) {
-//        return jdbcTemplate.update(
-//                "INSERT INTO EMPLOYEE VALUES (?, ?, ?, ?)", 5, "Bill", "Gates", "USA");
-//    }
-
-
-    //MAP PARAMETERS
-//
-//    SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", 1);
-//return namedParameterJdbcTemplate.queryForObject(
-//        "SELECT FIRST_NAME FROM EMPLOYEE WHERE ID = :id", namedParameters, String.class);
-
 
 
     // ROWMAPPER
@@ -61,7 +45,7 @@ public class PokemonJdbcService {
 ////        }
 ////    }
 //String query = "SELECT * FROM EMPLOYEE WHERE ID = ?";
-//    List<Employee> employees = jdbcTemplate.queryForObject(
+//    List<Employee> employees = jdbcTemplate.query(
 //            query, new Object[] { id }, new EmployeeRowMapper());
 
 
