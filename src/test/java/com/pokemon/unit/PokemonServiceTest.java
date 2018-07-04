@@ -1,7 +1,7 @@
 package com.pokemon.unit;
 
 import com.pokemon.service.PokemonService;
-import com.pokemon.service.PokemonServiceImplTest;
+import com.pokemon.PokemonServiceImplTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,13 +15,13 @@ public class PokemonServiceTest {
     @Test
     public void shouldReturnBulbasaur() throws IOException {
         Assert.assertEquals(pokemonService
-                .getPokemonDto("test").getName(),"bublbasaur");
+                .getPokemonDto(1).getName(),"bublbasaur");
     }
 
     @Test
     public void shoudlNotReturnBulbasaur() throws IOException {
         Assert.assertNotEquals(pokemonService
-                .getPokemonDto("test").getName(),"bu");
+                .getPokemonDto(2).getName(),"bu");
 
     }
 }

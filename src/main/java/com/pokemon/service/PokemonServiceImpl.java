@@ -25,7 +25,7 @@ public class PokemonServiceImpl implements PokemonService {
     ParseService parseService;
     PokemonJdbcService pokemonJdbcService;
 
-    public PokemonDto getPokemonDto(String id) throws IOException {
+    public PokemonDto getPokemonDto(int id) throws IOException {
         CloseableHttpClient httpClient
                 = HttpClients.custom()
                 .setSSLHostnameVerifier(new NoopHostnameVerifier())
@@ -49,14 +49,8 @@ public class PokemonServiceImpl implements PokemonService {
     }
 
     @Override
-    public PokemonDto getPokemonById(String id) {
+    public PokemonDto getPokemonById(int id) {
 
-        PokemonDto dto = null;
-        try {
-            dto = pokemonJdbcService.getById(id);
-        } catch (Exception e) {
-
-                    }
-        return dto;
+        return pokemonJdbcService.getById(id);
     }
 }

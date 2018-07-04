@@ -1,23 +1,23 @@
-package com.pokemon.service;
+package com.pokemon;
 
 import com.pokemon.dto.PokemonDto;
+import com.pokemon.service.PokemonService;
 
 import java.io.IOException;
 
 public class PokemonServiceImplTest implements PokemonService {
 
     @Override
-    public PokemonDto getPokemonDto(String id) throws IOException {
+    public PokemonDto getPokemonDto(int id) throws IOException {
         return new PokemonDto(id, "bublbasaur","20");
     }
 
     @Override
-    public void addToDb(PokemonDto pokemonDto) {
+    public void addToDb(PokemonDto pokemonDto, int id) {
 
     }
-
     @Override
-    public PokemonDto getPokemonById(String id) {
+    public PokemonDto getPokemonById(int id) {
         return null;
     }
 }

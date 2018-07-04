@@ -1,18 +1,12 @@
 package com.pokemon.service;
 
 
-import com.pokemon.config.JdbcConfig;
 import com.pokemon.dto.PokemonDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class PokemonJdbcService {
@@ -32,9 +26,9 @@ public class PokemonJdbcService {
 
     }
 
-    public PokemonDto getById(String id) {
+    public PokemonDto getById(int id) {
         try {
-            jdbcTemplate.queryForObject("SELECT * FROM POKEMONS WHERE ID = " + id,
+            jdbcTemplate.queryForObject("SELECT id, name, weight, speciesUrl, speciesName FROM POKEMONS WHERE ID = " + id,
                     (resultSet, i) -> {
                         PokemonDto pokemonDto = new PokemonDto();
                         pokemonDto.setId(resultSet.getInt("id"));
@@ -46,8 +40,8 @@ public class PokemonJdbcService {
                     });
         } catch (Exception e) {
 
+            //https://doc}s.spring.io/spring/docs/5.0.7.RELEASE/spring-framework-reference/data-access.html#jdbc
         }
         return null;
-        //https://docs.spring.io/spring/docs/5.0.7.RELEASE/spring-framework-reference/data-access.html#jdbc
     }
 }
