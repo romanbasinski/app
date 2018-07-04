@@ -43,9 +43,20 @@ public class PokemonServiceImpl implements PokemonService {
     }
 
     @Override
-    public void addToDb(PokemonDto pokemonDto) {
-        //TODO przekazac parametr z PokemonRest
-        pokemonJdbcService.addToPokemonTable(pokemonDto, 1);
+    public void addToDb(PokemonDto pokemonDto, int id) {
+        pokemonJdbcService.addToPokemonTable(pokemonDto, id);
 
+    }
+
+    @Override
+    public PokemonDto getPokemonById(String id) {
+
+        PokemonDto dto = null;
+        try {
+            dto = pokemonJdbcService.getById(id);
+        } catch (Exception e) {
+
+                    }
+        return dto;
     }
 }

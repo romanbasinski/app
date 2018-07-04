@@ -2,6 +2,7 @@ package com.pokemon.rest;
 
 
 import com.pokemon.dto.PokemonDto;
+import com.pokemon.service.PokemonJdbcService;
 import com.pokemon.service.PokemonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +29,14 @@ public class PokemonRest {
 
     @RequestMapping("/pokemon")
     public PokemonDto getPokemon(@RequestParam(value="id") String id) throws IOException {
-        return pokemonService.getPokemonDto(id);
+        //SELECT DO BAZY CZY POKEMON O ID ISTNIEJE
+        PokemonDto pokemonDto1 = pokemonService.getPokemonById(id);
+        if(pokemonDto1 != null) return pokemonDto1;
+
+        PokemonDto pokemonDto =  pokemonService.getPokemonDto(id);
+        pokemonService.addToDb(pokemonDto);
+        return pokemonDto;
+
     }
 
 

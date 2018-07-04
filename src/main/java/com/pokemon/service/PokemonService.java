@@ -7,5 +7,7 @@ import java.io.IOException;
 public interface PokemonService {
 
     PokemonDto getPokemonDto(String id) throws IOException;
-    void addToDb(PokemonDto pokemonDto);
+    public void addToDb(PokemonDto pokemonDto, int id);
+
+    PokemonDto getPokemonById(String id);
 }
