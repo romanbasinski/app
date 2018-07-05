@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationEn
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private BasicAuthenticationEntryPoint basicAuthenticationPoint;
+    private BasicAuthenticationPoint basicAuthenticationPoint;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
