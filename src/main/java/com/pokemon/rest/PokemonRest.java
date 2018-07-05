@@ -14,6 +14,8 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.List;
 
+import static java.util.Arrays.asList;
+
 @RestController
 public class PokemonRest {
 
@@ -39,9 +41,9 @@ public class PokemonRest {
 
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/api/getAll")
     public List<PokemonDto> getPokemon() throws IOException {
-        return null;
+        return asList(new PokemonDto());
     }
 
     //get ktory to wyswietli //getAllPokemons

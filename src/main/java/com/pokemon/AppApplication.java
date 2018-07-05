@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
@@ -16,6 +19,7 @@ public class AppApplication {
     public static void main(String args[]) {
         SpringApplication.run(AppApplication.class);
     }
+
 
 
 
