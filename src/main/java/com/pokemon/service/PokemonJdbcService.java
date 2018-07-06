@@ -29,10 +29,10 @@ public class PokemonJdbcService {
     public PokemonDto getById(int id) {
         try {
 
-            return jdbcTemplate.queryForObject("SELECT id, name, weight, speciesUrl, speciesName FROM POKEMONS WHERE ID = " + id,
+            return jdbcTemplate.queryForObject("SELECT idPokemon, name, weight, speciesUrl, speciesName FROM POKEMONS WHERE ID = " + id,
                     (resultSet, i) -> {
                         PokemonDto pokemonDto = new PokemonDto();
-                        pokemonDto.setId(resultSet.getInt("id"));
+                        pokemonDto.setIdPokemon(resultSet.getInt("idPokemon"));
                         pokemonDto.setName(resultSet.getString("name"));
                         pokemonDto.setWeight(resultSet.getString("weight"));
                         pokemonDto.setSpeciesUrl(resultSet.getString("speciesUrl"));

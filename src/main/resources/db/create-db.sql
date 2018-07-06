@@ -7,7 +7,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE pokemons (
-  id INTEGER PRIMARY KEY,
+  idPokemon INTEGER PRIMARY KEY,
   name VARCHAR(30),
   weight  VARCHAR(5),
   speciesUrl VARCHAR(200),

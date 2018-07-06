@@ -2,6 +2,7 @@ package com.pokemon.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.hateoas.ResourceSupport;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -10,8 +11,8 @@ import java.util.Map;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PokemonDto {
-    private int id;
+public class PokemonDto extends ResourceSupport {
+    private int idPokemon;
     private String name;
     private String weight;
     private String speciesUrl;
@@ -27,12 +28,12 @@ public class PokemonDto {
     public PokemonDto() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdPokemon() {
+        return idPokemon;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdPokemon(int idPokemon) {
+        this.idPokemon = idPokemon;
     }
 
     public String getName() {
@@ -51,8 +52,8 @@ public class PokemonDto {
         this.weight = weight;
     }
 
-    public PokemonDto(int id, String name, String weight) {
-        this.id = id;
+    public PokemonDto(int idPokemon, String name, String weight) {
+        this.idPokemon = idPokemon;
         this.name = name;
         this.weight = weight;
 
